@@ -27,6 +27,73 @@
   [data-fade="in"] > *:nth-child(3) { transition-delay: .24s; }
   [data-fade="in"] > *:nth-child(4) { transition-delay: .36s; }
   @media (prefers-reduced-motion: reduce) { [data-reveal], [data-fade] > * { opacity: 1 !important; transform: none !important; filter: none !important; } }
+
+  /* ================= Mobile ================= */
+  .ms-burger { display: none; }
+  .ms-dots { display: none; }
+
+  @media (max-width: 767px) {
+    /* Header — collapse the link row into a burger panel */
+    .ms-topbar { position: relative; flex-wrap: nowrap !important; }
+    .ms-burger {
+      display: flex; flex-direction: column; justify-content: center; gap: 5px;
+      width: 44px; height: 44px; padding: 0 10px; flex: 0 0 auto;
+      background: transparent; border: 2px solid rgba(59,130,246,0.55); cursor: pointer;
+    }
+    .ms-burger span { display: block; height: 2px; background: #dce6ff; transition: transform .2s ease, opacity .2s ease; }
+    .ms-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .ms-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .ms-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    #ms-nav {
+      display: none !important;
+      position: absolute; top: calc(100% + 12px); left: 0; right: 0; z-index: 30;
+      flex-direction: column !important; gap: 0 !important;
+      background: #0f1a30; border: 3px solid #3B82F6; box-shadow: 7px 7px 0 rgba(126,217,87,0.35);
+    }
+    #ms-nav[data-open="true"] { display: flex !important; }
+    #ms-nav a {
+      border: 0 !important; border-bottom: 2px solid rgba(59,130,246,0.28) !important;
+      padding: 15px 18px !important; font-size: 13px !important;
+    }
+    #ms-nav a:last-child { border-bottom: 0 !important; }
+
+    /* Card rows — one card at a time, swipe sideways */
+    .ms-swipe {
+      display: flex !important; grid-template-columns: none !important; gap: 14px !important;
+      overflow-x: auto; overflow-y: hidden;
+      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; overscroll-behavior-x: contain;
+      margin-left: -20px; margin-right: -20px; padding: 8px 20px 22px;
+    }
+    .ms-swipe::-webkit-scrollbar { display: none; }
+    .ms-swipe > * { flex: 0 0 calc(100vw - 78px); min-width: 0; scroll-snap-align: center; }
+    .ms-dots { display: flex; justify-content: center; gap: 9px; margin-top: -18px; }
+    .ms-dots button {
+      width: 10px; height: 10px; padding: 0; cursor: pointer;
+      background: transparent; border: 2px solid rgba(59,130,246,0.7);
+    }
+    .ms-dots button[aria-current="true"] { background: #7ED957; border-color: #7ED957; }
+
+    /* Tighter vertical rhythm */
+    .ms-hero-inner { padding: 22px 0 64px !important; gap: 22px !important; }
+    .ms-hero-lockup { margin-top: -26px !important; }
+    #lomba, #timeline, #biaya, #syarat { padding-top: 56px !important; padding-bottom: 56px !important; }
+    #daftar { padding: 64px 20px 34px !important; }
+
+    /* Note strips — keep the star on the same line as its text */
+    .ms-note { flex-wrap: nowrap !important; align-items: flex-start !important; }
+    .ms-note > :last-child { flex: 1 1 auto; min-width: 0; }
+
+    /* Partner logos — a neat block instead of a tall wrapped pill */
+    .ms-partners {
+      border-radius: 18px !important; width: 100% !important;
+      padding: 18px 16px !important; gap: 18px 22px !important;
+    }
+    .ms-partners img { height: 26px !important; }
+    .ms-partners img[alt*="Sintaks"] { height: 30px !important; }
+    .ms-partners img[alt*="D3 Teknik"] { height: 32px !important; }
+  }
 </style>
 <noscript><style>
   [data-reveal], [data-fade] > * { opacity: 1 !important; transform: none !important; filter: none !important; }
@@ -43,13 +110,16 @@
     <div style="position:absolute; top:12%; left:50%; width:min(760px,90vw); height:520px; transform:translateX(-50%); background:radial-gradient(closest-side, rgba(126,217,87,0.18), transparent 70%); filter:blur(10px); animation:mythicGlow 6s ease-in-out infinite; pointer-events:none"></div>
     <div style="position:absolute; top:120px; left:4%; width:18px; height:18px; background:#3B82F6; animation:mythicGlow 4s ease-in-out infinite; pointer-events:none"></div>
 
-    <div style="position:relative; max-width:1160px; margin:0 auto; padding:34px 0 96px; display:flex; flex-direction:column; gap:28px">
+    <div class="ms-hero-inner" style="position:relative; max-width:1160px; margin:0 auto; padding:34px 0 96px; display:flex; flex-direction:column; gap:28px">
 
-      <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between">
+      <div class="ms-topbar" style="display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between">
         <div style="display:flex; align-items:center; gap:12px">
           <img src="assets/mythic-logo-mark.png" alt="Mythic Season 3" style="display:block; height:46px; width:auto">
         </div>
-        <nav style="display:flex; flex-wrap:wrap; gap:8px">
+        <button class="ms-burger" type="button" aria-label="Buka menu" aria-controls="ms-nav" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="ms-nav" style="display:flex; flex-wrap:wrap; gap:8px">
           <a href="#lomba" style="font-family:'Space Mono',monospace; font-weight:700; font-size:11px; color:#dce6ff; border:2px solid rgba(59,130,246,0.55); padding:9px 11px">LOMBA</a>
           <a href="#timeline" style="font-family:'Space Mono',monospace; font-weight:700; font-size:11px; color:#dce6ff; border:2px solid rgba(59,130,246,0.55); padding:9px 11px">TIMELINE</a>
           <a href="#biaya" style="font-family:'Space Mono',monospace; font-weight:700; font-size:11px; color:#dce6ff; border:2px solid rgba(59,130,246,0.55); padding:9px 11px">BIAYA</a>
@@ -63,7 +133,7 @@
             <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:clamp(9px,2.2vw,12px); line-height:1.6; white-space:nowrap">SMA / SMK / MA SE-INDONESIA</span>
           </div>
 
-          <h1 style="margin:-80px 0 0">
+          <h1 class="ms-hero-lockup" style="margin:-80px 0 0">
             <img src="assets/mythic-hero-lockup.png" alt="Mythic Season 3 — Madiun Youth IT Competition · Total Hadiah Puluhan Juta" style="display:block; width:100%; max-width:640px; height:auto; filter:drop-shadow(0 10px 24px rgba(13,21,38,0.75))">
           </h1>
 
@@ -135,7 +205,7 @@
         <img src="assets/head-cabang-lomba.png" alt="3 Cabang Lomba" style="display:block; width:100%; max-width:620px; height:auto">
       </div>
 
-      <div data-fade="" style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px">
+      <div data-fade="" class="ms-swipe" style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px">
 
         <article style="position:relative; background:#182946; border:4px solid #7ED957; box-shadow:9px 9px 0 rgba(126,217,87,0.35); padding:26px; display:flex; flex-direction:column; gap:16px; transform:rotate(-1.1deg); transition:transform .18s ease, box-shadow .18s ease" style-hover="transform:rotate(-1.1deg) scale(1.03) translateY(-6px); box-shadow:14px 14px 0 rgba(126,217,87,0.55)">
           <div style="align-self:flex-start; background:#7ED957; color:#0d1526; font-family:'Space Mono',monospace; font-weight:700; font-size:11px; padding:7px 10px; border:2px solid #0d1526">ESPORTS</div>
@@ -214,7 +284,7 @@
         <img src="assets/head-timeline-event.png" alt="Timeline Event" style="display:block; width:100%; max-width:660px; height:auto">
       </div>
 
-      <div data-fade="" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:22px">
+      <div data-fade="" class="ms-swipe" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:22px">
 
         <div style="background:#182946; border:4px solid #7ED957; box-shadow:8px 8px 0 rgba(126,217,87,0.3); padding:24px; display:flex; flex-direction:column; gap:16px; transform:rotate(-0.8deg)">
           <span style="font-family:'Archivo Black',sans-serif; font-size:19px; line-height:1.2; color:#7ED957">MOBILE LEGENDS</span>
@@ -247,7 +317,7 @@
         </div>
       </div>
 
-      <div style="background:#0d1526; border:3px solid #3B82F6; padding:18px 22px; display:flex; align-items:center; gap:14px; flex-wrap:wrap">
+      <div class="ms-note" style="background:#0d1526; border:3px solid #3B82F6; padding:18px 22px; display:flex; align-items:center; gap:14px; flex-wrap:wrap">
         <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:12px; color:#3B82F6">★</span>
         <span style="font-size:16px; color:#dce6ff; line-height:1.5">Puncak acara <strong>27–28 Oktober 2026</strong> di Kampus UNS Madiun.</span>
       </div>
@@ -263,7 +333,7 @@
         <img src="assets/head-biaya-pendaftaran.png" alt="Biaya Pendaftaran" style="display:block; width:100%; max-width:680px; height:auto">
       </div>
 
-      <div data-fade="" style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px">
+      <div data-fade="" class="ms-swipe" style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px">
         <div style="background:#7ED957; color:#0d1526; border:4px solid #0d1526; box-shadow:10px 10px 0 #3B82F6; padding:28px; display:flex; flex-direction:column; gap:12px; transform:rotate(-1.2deg)">
           <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:12px">BATCH 1</span>
           <span style="font-family:'Archivo Black',sans-serif; font-size:clamp(34px,6vw,52px); line-height:1">GRATIS</span>
@@ -276,7 +346,7 @@
         </div>
       </div>
 
-      <div style="background:#0d1526; border:3px solid #7ED957; padding:18px 22px; display:flex; align-items:center; gap:14px; flex-wrap:wrap">
+      <div class="ms-note" style="background:#0d1526; border:3px solid #7ED957; padding:18px 22px; display:flex; align-items:center; gap:14px; flex-wrap:wrap">
         <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:12px; color:#7ED957">!</span>
         <span style="font-size:16px; color:#dce6ff; line-height:1.5">Biaya pendaftaran tidak dapat dikembalikan (<strong>non-refundable</strong>) apabila peserta mengundurkan diri setelah mendaftar.</span>
       </div>
@@ -291,7 +361,7 @@
         <img src="assets/head-syarat-peserta.png" alt="Syarat Peserta" style="display:block; width:100%; max-width:660px; height:auto">
       </div>
 
-      <div data-fade="" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px">
+      <div data-fade="" class="ms-swipe" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px">
         <div style="background:#182946; border-left:10px solid #7ED957; border-top:3px solid #7ED957; border-right:3px solid #7ED957; border-bottom:3px solid #7ED957; padding:24px; display:flex; flex-direction:column; gap:10px; transform:rotate(-0.6deg)">
           <span style="font-family:'Archivo Black',sans-serif; font-size:18px; line-height:1.2; color:#7ED957">SISWA AKTIF</span>
           <span style="font-size:16px; color:#dce6ff; line-height:1.6">Siswa aktif SMA/SMK/MA/sederajat se-Indonesia. Kompetisi bersifat tim, jumlah anggota sesuai ketentuan tiap cabang.</span>
@@ -352,7 +422,7 @@
         </div>
       </div>
 
-      <div style="background:#fff; border-radius:999px; padding:14px 30px; margin:0 auto; width:fit-content; max-width:100%; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:34px">
+      <div class="ms-partners" style="background:#fff; border-radius:999px; padding:14px 30px; margin:0 auto; width:fit-content; max-width:100%; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:34px">
         <img src="assets/logo-uns.png" alt="Universitas Sebelas Maret" style="display:block; height:32px; width:auto">
         <img src="assets/logo-sv.png" alt="Sekolah Vokasi UNS" style="display:block; height:32px; width:auto">
         <img src="assets/logo-esi-madiun.png" alt="ESI Kabupaten Madiun" style="display:block; height:30px; width:auto">
@@ -371,6 +441,65 @@
 <script>
 (function () {
   "use strict";
+
+
+  // Burger menu (mobile)
+  var burger = document.querySelector(".ms-burger");
+  var nav = document.getElementById("ms-nav");
+  if (burger && nav) {
+    var setOpen = function (open) {
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+      burger.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+      if (open) { nav.setAttribute("data-open", "true"); } else { nav.removeAttribute("data-open"); }
+    };
+    burger.addEventListener("click", function () {
+      setOpen(burger.getAttribute("aria-expanded") !== "true");
+    });
+    nav.addEventListener("click", function (e) { if (e.target.closest("a")) setOpen(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+    document.addEventListener("click", function (e) {
+      if (!nav.contains(e.target) && !burger.contains(e.target)) setOpen(false);
+    });
+  }
+
+  // Swipe dots — one per card, kept in sync with the scroll position
+  document.querySelectorAll(".ms-swipe").forEach(function (row) {
+    var cards = Array.prototype.slice.call(row.children);
+    if (cards.length < 2) return;
+
+    var dots = document.createElement("div");
+    dots.className = "ms-dots";
+    cards.forEach(function (card, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("aria-label", "Kartu " + (i + 1) + " dari " + cards.length);
+      b.addEventListener("click", function () {
+        row.scrollTo({ left: card.offsetLeft - row.offsetLeft, behavior: "smooth" });
+      });
+      dots.appendChild(b);
+    });
+    row.parentNode.insertBefore(dots, row.nextSibling);
+
+    var buttons = Array.prototype.slice.call(dots.children);
+    var sync = function () {
+      var mid = row.scrollLeft + row.clientWidth / 2;
+      var active = 0, best = Infinity;
+      cards.forEach(function (card, i) {
+        var d = Math.abs(card.offsetLeft - row.offsetLeft + card.offsetWidth / 2 - mid);
+        if (d < best) { best = d; active = i; }
+      });
+      buttons.forEach(function (b, i) {
+        if (i === active) { b.setAttribute("aria-current", "true"); } else { b.removeAttribute("aria-current"); }
+      });
+    };
+    var ticking = false;
+    row.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; sync(); });
+    }, { passive: true });
+    sync();
+  });
 
   // Countdown — Technical Meeting
   var TARGET = new Date("2026-10-09T19:00:00+07:00").getTime();
