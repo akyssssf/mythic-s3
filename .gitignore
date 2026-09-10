@@ -1,0 +1,4 @@
+# Source export from Claude Design (not needed to serve the site)
+*.zip
+extracted/
+.DS_Store

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23131e35'/%3E%3Cpath d='M104 56 L74 108 h20 l-10 40 34 -54 h-21 z' fill='%237ED957'/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MYTHIC SEASON 3 — Madiun Youth IT Competition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #131e35; color: #fff; font-family: Montserrat, system-ui, sans-serif; overflow-x: hidden; }
+  a { color: #7ED957; text-decoration: none; }
+  a:hover { color: #b6f58a; }
+  @keyframes mythicFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes mythicMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  @keyframes mythicDrift { 0% { transform: rotate(-8deg) translateX(0); } 100% { transform: rotate(-8deg) translateX(-52px); } }
+  @keyframes mythicGlow { 0%,100% { opacity: 0.35; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.08); } }
+  @keyframes mythicBlink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+  @keyframes mythicSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  [data-reveal="in"] { opacity: 1; transform: none; }
+  [data-fade] > * { opacity: 0; transition: opacity .6s ease, filter .6s ease; filter: blur(3px); }
+  [data-fade="in"] > * { opacity: 1; filter: none; }
+  [data-fade="in"] > *:nth-child(2) { transition-delay: .12s; }
+  [data-fade="in"] > *:nth-child(3) { transition-delay: .24s; }
+  [data-fade="in"] > *:nth-child(4) { transition-delay: .36s; }
+  @media (prefers-reduced-motion: reduce) { [data-reveal], [data-fade] > * { opacity: 1 !important; transform: none !important; filter: none !important; } }
+</style>
+<noscript><style>
+  [data-reveal], [data-fade] > * { opacity: 1 !important; transform: none !important; filter: none !important; }
+</style></noscript>
+</head>
+<body>
+
+<div style="background:#131e35; min-height:100vh; position:relative; overflow:hidden">
+
+  <!-- HERO -->
+  <section id="hero" data-screen-label="Hero" style="position:relative; padding:0 20px 0; background:radial-gradient(circle at 50% 0%, #1e3059 0%, #131e35 65%); overflow:hidden">
+    <div data-parallax="0.22" style="position:absolute; inset:-18% 0; background-image:radial-gradient(#7ED957 0.9px, transparent 1px); background-size:4px 4px; opacity:0.4; will-change:transform; mask-image:radial-gradient(120% 90% at 18% 4%, #000 0%, transparent 62%), radial-gradient(80% 60% at 78% 46%, rgba(0,0,0,0.75) 0%, transparent 68%), radial-gradient(60% 80% at 46% 92%, rgba(0,0,0,0.5) 0%, transparent 70%); -webkit-mask-image:radial-gradient(120% 90% at 18% 4%, #000 0%, transparent 62%), radial-gradient(80% 60% at 78% 46%, rgba(0,0,0,0.75) 0%, transparent 68%), radial-gradient(60% 80% at 46% 92%, rgba(0,0,0,0.5) 0%, transparent 70%); pointer-events:none"></div>
+    <div data-parallax="0.08" style="position:absolute; inset:-18% 0; background-image:linear-gradient(#3B82F6 1px, transparent 1px), linear-gradient(90deg, #3B82F6 1px, transparent 1px); background-size:64px 64px; opacity:0.08; will-change:transform; pointer-events:none"></div>
+    <div style="position:absolute; top:12%; left:50%; width:min(760px,90vw); height:520px; transform:translateX(-50%); background:radial-gradient(closest-side, rgba(126,217,87,0.18), transparent 70%); filter:blur(10px); animation:mythicGlow 6s ease-in-out infinite; pointer-events:none"></div>
+    <div style="position:absolute; top:120px; left:4%; width:18px; height:18px; background:#3B82F6; animation:mythicGlow 4s ease-in-out infinite; pointer-events:none"></div>
+
+    <div style="position:relative; max-width:1160px; margin:0 auto; padding:34px 0 96px; display:flex; flex-direction:column; gap:28px">
+
+      <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between">
+        <div style="display:flex; align-items:center; gap:12px">
+          <img src="assets/mythic-logo-mark.png" alt="Mythic Season 3" style="display:block; height:46px; width:auto">
+        </div>
+        <nav style="display:flex; flex-wrap:wrap; gap:8px">
+          <a href="#lomba" style="font-family:'Space Mono',monospace; font-weight:700; font-size:11px; color:#dce6ff; border:2px solid rgba(59,130,246,0.55); padding:9px 11px">LOMBA</a>
+          <a href="#timeline" style="font-family:'Space Mono',monospace; font-weight:700; font-size:11px; color:#dce6ff; border:2px solid rgba(59,130,246,0.55); padding:9px 11px">TIMELINE</a>
+          <a href="#biaya" style="font-family:'Space Mono',monospace; font-weight:700; font-size:11px; color:#dce6ff; border:2px solid rgba(59,130,246,0.55); padding:9px 11px">BIAYA</a>
+          <a href="#syarat" style="font-family:'Space Mono',monospace; font-weight:700; font-size:11px; color:#dce6ff; border:2px solid rgba(59,130,246,0.55); padding:9px 11px">SYARAT</a>
+        </nav>
+      </div>
+
+      <div style="display:flex; flex-direction:column; align-items:center; gap:34px">
+        <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:22px; min-width:0; max-width:760px">
+          <div style="display:inline-flex; align-items:center; background:#3B82F6; border:3px solid #0d1526; box-shadow:5px 5px 0 #7ED957; padding:8px 14px; transform:rotate(-2deg); max-width:100%">
+            <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:clamp(9px,2.2vw,12px); line-height:1.6; white-space:nowrap">SMA / SMK / MA SE-INDONESIA</span>
+          </div>
+
+          <h1 style="margin:-80px 0 0">
+            <img src="assets/mythic-hero-lockup.png" alt="Mythic Season 3 — Madiun Youth IT Competition · Total Hadiah Puluhan Juta" style="display:block; width:100%; max-width:640px; height:auto; filter:drop-shadow(0 10px 24px rgba(13,21,38,0.75))">
+          </h1>
+
+          <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px">
+            <span style="font-family:'Archivo Black',sans-serif; font-size:clamp(14px,2vw,20px); color:#7ED957">PLAY</span>
+            <span style="font-family:'Archivo Black',sans-serif; font-size:clamp(14px,2vw,20px); color:#3B82F6">•</span>
+            <span style="font-family:'Archivo Black',sans-serif; font-size:clamp(14px,2vw,20px); color:#7ED957">CREATE</span>
+            <span style="font-family:'Archivo Black',sans-serif; font-size:clamp(14px,2vw,20px); color:#3B82F6">•</span>
+            <span style="font-family:'Archivo Black',sans-serif; font-size:clamp(14px,2vw,20px); color:#7ED957">INNOVATE</span>
+          </div>
+
+          <p style="margin:0; font-size:17px; line-height:1.6; color:#c3d1ef; max-width:46ch; text-wrap:pretty">IT Festival tingkat SMA/SMK/MA/sederajat se-Indonesia. Total hadiah keseluruhan <strong style="color:#7ED957">Rp13.000.000</strong>. Diselenggarakan di <strong style="color:#fff">Kampus Universitas Sebelas Maret Madiun</strong>, 27–28 Oktober 2026.</p>
+
+          <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:center">
+            <a href="https://uns.id/mythic2026" target="_blank" rel="noopener" style="font-family:'Archivo Black',sans-serif; font-size:22px; color:#0d1526; background:#7ED957; border:4px solid #0d1526; box-shadow:8px 8px 0 #3B82F6; padding:16px 30px; transition:transform .12s ease, box-shadow .12s ease" style-hover="transform:translate(-3px,-3px); box-shadow:12px 12px 0 #3B82F6">REGIST NOW</a>
+            <a href="#lomba" style="font-family:'Space Mono',monospace; font-weight:700; font-size:13px; color:#fff; border:3px solid #3B82F6; padding:16px 20px; transition:background .15s ease" style-hover="background:rgba(59,130,246,0.25)">LIHAT CABANG</a>
+          </div>
+        </div>
+
+        <div style="width:100%; max-width:560px; display:flex; flex-direction:column; gap:16px">
+            <div style="border:4px solid #3B82F6; background:#0f1a30; box-shadow:8px 8px 0 rgba(126,217,87,0.5); padding:16px">
+              <div style="font-family:'Space Mono',monospace; font-weight:700; font-size:11px; color:#7ED957; margin-bottom:12px; line-height:1.7">COUNTDOWN — TECHNICAL MEETING</div>
+              <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px; text-align:center">
+                <div style="border:2px solid rgba(126,217,87,0.5); padding:8px 4px">
+                  <div style="font-family:'Archivo Black',sans-serif; font-size:clamp(18px,3.4vw,28px); color:#fff"><span id="cd-days">00</span></div>
+                  <div style="font-family:'Space Mono',monospace; font-size:9px; color:#9fb3da; letter-spacing:1px">HARI</div>
+                </div>
+                <div style="border:2px solid rgba(126,217,87,0.5); padding:8px 4px">
+                  <div style="font-family:'Archivo Black',sans-serif; font-size:clamp(18px,3.4vw,28px); color:#fff"><span id="cd-hours">00</span></div>
+                  <div style="font-family:'Space Mono',monospace; font-size:9px; color:#9fb3da; letter-spacing:1px">JAM</div>
+                </div>
+                <div style="border:2px solid rgba(126,217,87,0.5); padding:8px 4px">
+                  <div style="font-family:'Archivo Black',sans-serif; font-size:clamp(18px,3.4vw,28px); color:#fff"><span id="cd-mins">00</span></div>
+                  <div style="font-family:'Space Mono',monospace; font-size:9px; color:#9fb3da; letter-spacing:1px">MENIT</div>
+                </div>
+                <div style="border:2px solid rgba(126,217,87,0.5); padding:8px 4px">
+                  <div style="font-family:'Archivo Black',sans-serif; font-size:clamp(18px,3.4vw,28px); color:#7ED957; animation:mythicBlink 2s ease-in-out infinite"><span id="cd-secs">00</span></div>
+                  <div style="font-family:'Space Mono',monospace; font-size:9px; color:#9fb3da; letter-spacing:1px">DETIK</div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- MARQUEE -->
+  <div style="background:#0d1526; border-bottom:4px solid #3B82F6; padding:12px 0; overflow:hidden; white-space:nowrap">
+    <div style="display:inline-flex; animation:mythicMarquee 60s linear infinite; will-change:transform">
+      <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:13px; color:#7ED957; padding-right:32px">MOBILE LEGENDS ★ BATTLE OF BRAIN ★ INNOVATION TECH ★ UNS KAMPUS MADIUN ★ 27–28 OKT 2026 ★</span>
+      <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:13px; color:#7ED957; padding-right:32px" aria-hidden="true">MOBILE LEGENDS ★ BATTLE OF BRAIN ★ INNOVATION TECH ★ UNS KAMPUS MADIUN ★ 27–28 OKT 2026 ★</span>
+      <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:13px; color:#7ED957; padding-right:32px" aria-hidden="true">MOBILE LEGENDS ★ BATTLE OF BRAIN ★ INNOVATION TECH ★ UNS KAMPUS MADIUN ★ 27–28 OKT 2026 ★</span>
+      <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:13px; color:#7ED957; padding-right:32px" aria-hidden="true">MOBILE LEGENDS ★ BATTLE OF BRAIN ★ INNOVATION TECH ★ UNS KAMPUS MADIUN ★ 27–28 OKT 2026 ★</span>
+      <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:13px; color:#7ED957; padding-right:32px" aria-hidden="true">MOBILE LEGENDS ★ BATTLE OF BRAIN ★ INNOVATION TECH ★ UNS KAMPUS MADIUN ★ 27–28 OKT 2026 ★</span>
+      <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:13px; color:#7ED957; padding-right:32px" aria-hidden="true">MOBILE LEGENDS ★ BATTLE OF BRAIN ★ INNOVATION TECH ★ UNS KAMPUS MADIUN ★ 27–28 OKT 2026 ★</span>
+      <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:13px; color:#7ED957; padding-right:32px" aria-hidden="true">MOBILE LEGENDS ★ BATTLE OF BRAIN ★ INNOVATION TECH ★ UNS KAMPUS MADIUN ★ 27–28 OKT 2026 ★</span>
+      <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:13px; color:#7ED957; padding-right:32px" aria-hidden="true">MOBILE LEGENDS ★ BATTLE OF BRAIN ★ INNOVATION TECH ★ UNS KAMPUS MADIUN ★ 27–28 OKT 2026 ★</span>
+    </div>
+  </div>
+
+  <!-- CABANG LOMBA -->
+  <section id="lomba" data-screen-label="Cabang Lomba" style="position:relative; padding:80px 20px; background:#131e35; overflow:hidden">
+    <div data-parallax="-0.18" style="position:absolute; inset:-18% 0; background-image:radial-gradient(#5b9bff 0.9px, transparent 1px); background-size:4px 4px; opacity:0.38; will-change:transform; mask-image:radial-gradient(90% 70% at 88% 8%, #000 0%, transparent 65%), radial-gradient(70% 60% at 8% 62%, rgba(0,0,0,0.7) 0%, transparent 70%); -webkit-mask-image:radial-gradient(90% 70% at 88% 8%, #000 0%, transparent 65%), radial-gradient(70% 60% at 8% 62%, rgba(0,0,0,0.7) 0%, transparent 70%); pointer-events:none"></div>
+    <div style="position:relative; max-width:1160px; margin:0 auto; display:flex; flex-direction:column; gap:40px">
+
+      <span style="position:absolute; z-index:0; top:50%; left:50%; transform:translate(-50%,-50%); font-family:'Archivo Black',sans-serif; font-size:min(38vw,560px); line-height:0.78; letter-spacing:0.06em; color:transparent; -webkit-text-stroke:4px rgba(126,217,87,0.09); pointer-events:none; user-select:none; white-space:nowrap">ARENA</span>
+      <div data-reveal="" style="position:relative; z-index:1; display:flex; justify-content:center">
+        <img src="assets/head-cabang-lomba.png" alt="3 Cabang Lomba" style="display:block; width:100%; max-width:620px; height:auto">
+      </div>
+
+      <div data-fade="" style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px">
+
+        <article style="position:relative; background:#182946; border:4px solid #7ED957; box-shadow:9px 9px 0 rgba(126,217,87,0.35); padding:26px; display:flex; flex-direction:column; gap:16px; transform:rotate(-1.1deg); transition:transform .18s ease, box-shadow .18s ease" style-hover="transform:rotate(-1.1deg) scale(1.03) translateY(-6px); box-shadow:14px 14px 0 rgba(126,217,87,0.55)">
+          <div style="align-self:flex-start; background:#7ED957; color:#0d1526; font-family:'Space Mono',monospace; font-weight:700; font-size:11px; padding:7px 10px; border:2px solid #0d1526">ESPORTS</div>
+          <h3 style="margin:0; font-family:'Archivo Black',sans-serif; font-size:26px; line-height:1.1; color:#fff">MOBILE E-SPORT TOURNAMENT</h3>
+          <span style="font-size:15px; color:#c3d1ef; margin-top:-6px">Mobile Legends: Bang Bang</span>
+          <div style="border-top:3px solid rgba(126,217,87,0.5); padding-top:16px; display:flex; flex-direction:column; gap:12px">
+            <div style="display:flex; flex-direction:column; gap:3px">
+              <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px">GRAND PRIZE</span>
+              <span style="font-family:'Archivo Black',sans-serif; font-size:30px; color:#7ED957; text-shadow:3px 3px 0 #0d1526">Rp 5.000.000</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:3px">
+              <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px">FORMAT</span>
+              <span style="font-size:17px; font-weight:700">Maks. 32 tim · 5 inti + 1 cadangan</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:3px">
+              <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px">JADWAL</span>
+              <span style="font-size:17px; font-weight:700">Penyisihan online 10 Okt · Final 27–28 Okt 2026</span>
+            </div>
+            <span style="font-size:14px; color:#9fb3da; line-height:1.5">Wajib perangkat &amp; akun sendiri. Joki atau akun pinjaman didiskualifikasi.</span>
+          </div>
+          <a href="https://uns.id/mythic2026" target="_blank" rel="noopener" style="margin-top:auto; text-align:center; font-family:'Archivo Black',sans-serif; font-size:15px; color:#0d1526; background:#7ED957; border:3px solid #0d1526; padding:12px; box-shadow:5px 5px 0 #3B82F6">DAFTAR</a>
+        </article>
+
+        <article style="position:relative; background:#182946; border:4px solid #3B82F6; box-shadow:9px 9px 0 rgba(59,130,246,0.35); padding:26px; display:flex; flex-direction:column; gap:16px; transform:rotate(0.8deg); transition:transform .18s ease, box-shadow .18s ease" style-hover="transform:rotate(0.8deg) scale(1.03) translateY(-6px); box-shadow:14px 14px 0 rgba(59,130,246,0.6)">
+          <div style="align-self:flex-start; background:#3B82F6; color:#fff; font-family:'Space Mono',monospace; font-weight:700; font-size:11px; padding:7px 10px; border:2px solid #0d1526">QUIZ</div>
+          <h3 style="margin:0; font-family:'Archivo Black',sans-serif; font-size:26px; line-height:1.1; color:#fff">BATTLE OF BRAIN</h3>
+          <span style="font-size:15px; color:#c3d1ef; margin-top:-6px">IT Quest Adventure / Prompt Battle</span>
+          <div style="border-top:3px solid rgba(59,130,246,0.6); padding-top:16px; display:flex; flex-direction:column; gap:12px">
+            <div style="display:flex; flex-direction:column; gap:3px">
+              <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px">GRAND PRIZE</span>
+              <span style="font-family:'Archivo Black',sans-serif; font-size:30px; color:#7ED957; text-shadow:3px 3px 0 #0d1526">Rp 4.000.000</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:3px">
+              <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px">FORMAT</span>
+              <span style="font-size:17px; font-weight:700">Maks. 16 tim · 3 orang/tim</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:3px">
+              <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px">JADWAL</span>
+              <span style="font-size:17px; font-weight:700">Penyisihan offline 15 Okt · Final 27–28 Okt 2026</span>
+            </div>
+            <span style="font-size:14px; color:#9fb3da; line-height:1.5">4 Pos: Software Engineering, Hardware, Networking, Cyber Security. 5 tim terbaik masuk Final Prompt Battle — bawa laptop sendiri.</span>
+          </div>
+          <a href="https://uns.id/mythic2026" target="_blank" rel="noopener" style="margin-top:auto; text-align:center; font-family:'Archivo Black',sans-serif; font-size:15px; color:#fff; background:#3B82F6; border:3px solid #0d1526; padding:12px; box-shadow:5px 5px 0 #7ED957">DAFTAR</a>
+        </article>
+
+        <article style="position:relative; background:#16233d; border:4px solid rgba(126,217,87,0.45); box-shadow:9px 9px 0 rgba(126,217,87,0.18); padding:26px; display:flex; flex-direction:column; gap:16px; transform:rotate(-0.6deg); transition:transform .18s ease, box-shadow .18s ease" style-hover="transform:rotate(-0.6deg) scale(1.03) translateY(-6px); box-shadow:14px 14px 0 rgba(126,217,87,0.32)">
+          <div style="align-self:flex-start; background:#7ED957; color:#0d1526; font-family:'Space Mono',monospace; font-weight:700; font-size:11px; padding:7px 10px; border:2px solid #0d1526">INNOVATION</div>
+          <h3 style="margin:0; font-family:'Archivo Black',sans-serif; font-size:26px; line-height:1.1; color:#fff">INNOVATION TECHNOLOGY CHALLENGE</h3>
+          <div style="border-top:3px solid rgba(126,217,87,0.5); padding-top:16px; display:flex; flex-direction:column; gap:12px">
+            <div style="display:flex; flex-direction:column; gap:3px">
+              <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px">GRAND PRIZE</span>
+              <span style="font-family:'Archivo Black',sans-serif; font-size:30px; color:#7ED957; text-shadow:3px 3px 0 #0d1526">Rp 4.000.000</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:3px">
+              <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px">FORMAT</span>
+              <span style="font-size:17px; font-weight:700">3–4 orang/tim</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:3px">
+              <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px">JADWAL</span>
+              <span style="font-size:17px; font-weight:700">Seleksi 6–7 Okt · Finalis 8 Okt · Final 27–28 Okt</span>
+            </div>
+            <span style="font-size:14px; color:#9fb3da; line-height:1.5">Karya wajib orisinal, belum dipublikasikan atau dijual. Proposal dikumpulkan selama periode pendaftaran.</span>
+          </div>
+          <a href="https://uns.id/mythic2026" target="_blank" rel="noopener" style="margin-top:auto; text-align:center; font-family:'Archivo Black',sans-serif; font-size:15px; color:#0d1526; background:#7ED957; border:3px solid #0d1526; padding:12px; box-shadow:5px 5px 0 #3B82F6">DAFTAR</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline" data-screen-label="Timeline" style="position:relative; padding:80px 20px; background:#0f1a30; border-top:4px solid #3B82F6; border-bottom:4px solid #3B82F6; overflow:hidden">
+    <div data-parallax="-0.1" style="position:absolute; inset:-18% 0; background-image:linear-gradient(90deg, #7ED957 1px, transparent 1px); background-size:48px 48px; opacity:0.07; will-change:transform; pointer-events:none"></div>
+    <div style="position:relative; max-width:1160px; margin:0 auto; display:flex; flex-direction:column; gap:38px">
+      <div data-reveal="" style="display:flex; justify-content:center">
+        <img src="assets/head-timeline-event.png" alt="Timeline Event" style="display:block; width:100%; max-width:660px; height:auto">
+      </div>
+
+      <div data-fade="" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:22px">
+
+        <div style="background:#182946; border:4px solid #7ED957; box-shadow:8px 8px 0 rgba(126,217,87,0.3); padding:24px; display:flex; flex-direction:column; gap:16px; transform:rotate(-0.8deg)">
+          <span style="font-family:'Archivo Black',sans-serif; font-size:19px; line-height:1.2; color:#7ED957">MOBILE LEGENDS</span>
+          <div style="display:grid; grid-template-columns:auto 1fr; gap:10px 14px; font-size:15px; line-height:1.4">
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px; padding-top:3px">BATCH 1</span><span style="font-weight:700">s.d. 25 Sept 2026 · gratis</span>
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px; padding-top:3px">BATCH 2</span><span style="font-weight:700">26 Sept – 6 Okt 2026</span>
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px; padding-top:3px">TM</span><span style="font-weight:700">9 Oktober 2026</span>
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px; padding-top:3px">LANJUT</span><span style="font-weight:700">Babak online penyisihan 10 Okt</span>
+          </div>
+        </div>
+
+        <div style="background:#182946; border:4px solid #3B82F6; box-shadow:8px 8px 0 rgba(59,130,246,0.3); padding:24px; display:flex; flex-direction:column; gap:16px; transform:rotate(0.7deg)">
+          <span style="font-family:'Archivo Black',sans-serif; font-size:19px; line-height:1.2; color:#3B82F6">IT QUEST ADVENTURE</span>
+          <div style="display:grid; grid-template-columns:auto 1fr; gap:10px 14px; font-size:15px; line-height:1.4">
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px; padding-top:3px">BATCH 1</span><span style="font-weight:700">s.d. 25 Sept 2026 · gratis</span>
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px; padding-top:3px">BATCH 2</span><span style="font-weight:700">26 Sept – 8 Okt 2026</span>
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px; padding-top:3px">TM</span><span style="font-weight:700">9 Oktober 2026</span>
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px; padding-top:3px">LANJUT</span><span style="font-weight:700">Babak penyisihan offline 15 Okt</span>
+          </div>
+        </div>
+
+        <div style="background:#182946; border:4px solid #7ED957; box-shadow:8px 8px 0 rgba(126,217,87,0.3); padding:24px; display:flex; flex-direction:column; gap:16px; transform:rotate(-0.5deg)">
+          <span style="font-family:'Archivo Black',sans-serif; font-size:19px; line-height:1.2; color:#7ED957">INNOVATION TECH</span>
+          <div style="display:grid; grid-template-columns:auto 1fr; gap:10px 14px; font-size:15px; line-height:1.4">
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px; padding-top:3px">BATCH 1</span><span style="font-weight:700">s.d. 25 Sept 2026 · gratis</span>
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px; padding-top:3px">BATCH 2</span><span style="font-weight:700">26 Sept – 6 Okt 2026</span>
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px; padding-top:3px">TM</span><span style="font-weight:700">9 Oktober 2026 (TM Final)</span>
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#9fb3da; letter-spacing:1px; padding-top:3px">LANJUT</span><span style="font-weight:700">Seleksi 6–7 Okt → pengumuman finalis 8 Okt</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#0d1526; border:3px solid #3B82F6; padding:18px 22px; display:flex; align-items:center; gap:14px; flex-wrap:wrap">
+        <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:12px; color:#3B82F6">★</span>
+        <span style="font-size:16px; color:#dce6ff; line-height:1.5">Puncak acara <strong>27–28 Oktober 2026</strong> di Kampus UNS Madiun.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIAYA -->
+  <section id="biaya" data-screen-label="Biaya" style="position:relative; padding:96px 20px 80px; background:#131e35; overflow:hidden">
+    <div style="position:absolute; top:-2px; left:0; right:0; height:26px; background:#0f1a30; clip-path:polygon(0 0, 100% 0, 100% 30%, 94% 100%, 88% 32%, 81% 96%, 74% 30%, 67% 98%, 60% 34%, 53% 95%, 46% 30%, 39% 97%, 32% 33%, 25% 96%, 18% 30%, 11% 98%, 5% 34%, 0 92%); pointer-events:none"></div>
+    <div data-parallax="0.16" style="position:absolute; inset:-18% 0; background-image:radial-gradient(#7ED957 0.9px, transparent 1px); background-size:4px 4px; opacity:0.36; will-change:transform; mask-image:radial-gradient(85% 80% at 12% 12%, #000 0%, transparent 66%), radial-gradient(75% 65% at 92% 78%, rgba(0,0,0,0.7) 0%, transparent 70%); -webkit-mask-image:radial-gradient(85% 80% at 12% 12%, #000 0%, transparent 66%), radial-gradient(75% 65% at 92% 78%, rgba(0,0,0,0.7) 0%, transparent 70%); pointer-events:none"></div>
+    <div style="position:relative; max-width:1160px; margin:0 auto; display:flex; flex-direction:column; gap:38px">
+      <div data-reveal="" style="display:flex; justify-content:center">
+        <img src="assets/head-biaya-pendaftaran.png" alt="Biaya Pendaftaran" style="display:block; width:100%; max-width:680px; height:auto">
+      </div>
+
+      <div data-fade="" style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px">
+        <div style="background:#7ED957; color:#0d1526; border:4px solid #0d1526; box-shadow:10px 10px 0 #3B82F6; padding:28px; display:flex; flex-direction:column; gap:12px; transform:rotate(-1.2deg)">
+          <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:12px">BATCH 1</span>
+          <span style="font-family:'Archivo Black',sans-serif; font-size:clamp(34px,6vw,52px); line-height:1">GRATIS</span>
+          <span style="font-size:17px; font-weight:700">Sampai 25 September 2026</span>
+        </div>
+        <div style="background:#182946; border:4px solid #3B82F6; box-shadow:10px 10px 0 rgba(59,130,246,0.4); padding:28px; display:flex; flex-direction:column; gap:12px; transform:rotate(1deg)">
+          <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:12px; color:#7ED957">BATCH 2</span>
+          <span style="font-family:'Archivo Black',sans-serif; font-size:clamp(30px,5vw,44px); line-height:1; color:#fff">Rp 30.000<span style="font-size:0.5em">/tim</span></span>
+          <span style="font-size:17px; font-weight:700; color:#c3d1ef">Dibuka 26 September 2026. Tanggal penutupan berbeda per kompetisi — lihat timeline.</span>
+        </div>
+      </div>
+
+      <div style="background:#0d1526; border:3px solid #7ED957; padding:18px 22px; display:flex; align-items:center; gap:14px; flex-wrap:wrap">
+        <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:12px; color:#7ED957">!</span>
+        <span style="font-size:16px; color:#dce6ff; line-height:1.5">Biaya pendaftaran tidak dapat dikembalikan (<strong>non-refundable</strong>) apabila peserta mengundurkan diri setelah mendaftar.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYARAT -->
+  <section id="syarat" data-screen-label="Syarat" style="position:relative; padding:80px 20px; background:#0f1a30; border-top:4px solid #7ED957; overflow:hidden">
+    <div style="position:absolute; top:0; right:0; width:420px; height:100%; background:repeating-linear-gradient(105deg, rgba(59,130,246,0.2) 0 5px, transparent 5px 24px); pointer-events:none"></div>
+    <div style="position:relative; max-width:1160px; margin:0 auto; display:flex; flex-direction:column; gap:38px">
+      <div data-reveal="" style="display:flex; justify-content:center">
+        <img src="assets/head-syarat-peserta.png" alt="Syarat Peserta" style="display:block; width:100%; max-width:660px; height:auto">
+      </div>
+
+      <div data-fade="" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px">
+        <div style="background:#182946; border-left:10px solid #7ED957; border-top:3px solid #7ED957; border-right:3px solid #7ED957; border-bottom:3px solid #7ED957; padding:24px; display:flex; flex-direction:column; gap:10px; transform:rotate(-0.6deg)">
+          <span style="font-family:'Archivo Black',sans-serif; font-size:18px; line-height:1.2; color:#7ED957">SISWA AKTIF</span>
+          <span style="font-size:16px; color:#dce6ff; line-height:1.6">Siswa aktif SMA/SMK/MA/sederajat se-Indonesia. Kompetisi bersifat tim, jumlah anggota sesuai ketentuan tiap cabang.</span>
+        </div>
+        <div style="background:#182946; border-left:10px solid #3B82F6; border-top:3px solid #3B82F6; border-right:3px solid #3B82F6; border-bottom:3px solid #3B82F6; padding:24px; display:flex; flex-direction:column; gap:10px; transform:rotate(0.8deg)">
+          <span style="font-family:'Archivo Black',sans-serif; font-size:18px; line-height:1.2; color:#3B82F6">BUKTI IDENTITAS</span>
+          <span style="font-size:16px; color:#dce6ff; line-height:1.6">Kartu Pelajar atau Surat Keterangan Aktif Sekolah wajib dilampirkan saat pendaftaran.</span>
+        </div>
+        <div style="background:#182946; border-left:10px solid #7ED957; border-top:3px solid #7ED957; border-right:3px solid #7ED957; border-bottom:3px solid #7ED957; padding:24px; display:flex; flex-direction:column; gap:10px; transform:rotate(-0.4deg)">
+          <span style="font-family:'Archivo Black',sans-serif; font-size:18px; line-height:1.2; color:#7ED957">KUOTA SEKOLAH</span>
+          <span style="font-size:16px; color:#dce6ff; line-height:1.6">Maksimal 2 tim per sekolah per kompetisi — berlaku terpisah tiap cabang, jadi satu sekolah boleh mengirim 2 tim di ketiganya sekaligus.</span>
+        </div>
+        <div style="background:#182946; border-left:10px solid #3B82F6; border-top:3px solid #3B82F6; border-right:3px solid #3B82F6; border-bottom:3px solid #3B82F6; padding:24px; display:flex; flex-direction:column; gap:10px; transform:rotate(0.5deg)">
+          <span style="font-family:'Archivo Black',sans-serif; font-size:18px; line-height:1.2; color:#3B82F6">MULTI-CABANG</span>
+          <span style="font-size:16px; color:#dce6ff; line-height:1.6">Satu siswa boleh mendaftar lebih dari 1 kompetisi. Bila jadwal bertabrakan, itu menjadi tanggung jawab peserta, bukan panitia.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER / DAFTAR -->
+  <footer id="daftar" data-screen-label="Footer" style="position:relative; padding:96px 20px 40px; background:#0d1526; border-top:4px solid #3B82F6; overflow:hidden">
+    <div data-parallax="-0.2" style="position:absolute; inset:-18% 0; background-image:radial-gradient(#5b9bff 0.9px, transparent 1px); background-size:4px 4px; opacity:0.4; will-change:transform; mask-image:radial-gradient(110% 90% at 50% 0%, #000 0%, transparent 70%), radial-gradient(60% 70% at 90% 90%, rgba(0,0,0,0.6) 0%, transparent 72%); -webkit-mask-image:radial-gradient(110% 90% at 50% 0%, #000 0%, transparent 70%), radial-gradient(60% 70% at 90% 90%, rgba(0,0,0,0.6) 0%, transparent 72%); pointer-events:none"></div>
+    <div style="position:relative; max-width:1160px; margin:0 auto; display:flex; flex-direction:column; gap:40px">
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:32px; align-items:start">
+        <div style="display:flex; flex-direction:column; gap:16px">
+          <img src="assets/head-daftar-sekarang.png" alt="Daftar Sekarang" style="display:block; width:100%; max-width:300px; height:auto">
+          <p style="margin:0; font-size:17px; color:#c3d1ef; line-height:1.6; max-width:38ch">Daftar lewat <strong style="color:#fff">uns.id/mythic2026</strong> — scan QR atau buka linknya langsung. Batch 1 gratis sampai 25 September 2026.</p>
+          <a href="https://uns.id/mythic2026" target="_blank" rel="noopener" style="align-self:flex-start; font-family:'Archivo Black',sans-serif; font-size:20px; color:#0d1526; background:#7ED957; border:4px solid #0d1526; box-shadow:7px 7px 0 #3B82F6; padding:15px 26px; transition:transform .12s ease" style-hover="transform:translate(-3px,-3px)">REGIST NOW</a>
+          <a href="https://uns.id/mythic2026" target="_blank" rel="noopener" style="font-family:'Space Mono',monospace; font-size:13px; color:#7ED957">uns.id/mythic2026</a>
+        </div>
+
+        <div style="display:flex; flex-direction:column; justify-self:center">
+          <div style="width:190px; height:190px; border:4px solid #7ED957; background:repeating-linear-gradient(45deg,#16233d 0 8px,#111c33 8px 16px); display:flex; align-items:center; justify-content:center; text-align:center; padding:14px">
+            <span style="font-family:'Space Mono',monospace; font-size:12px; color:#9fb3da; line-height:1.7">QR CODE<br>uns.id/<br>mythic2026</span>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:18px">
+          <div style="display:flex; flex-direction:column; gap:6px">
+            <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:11px; color:#7ED957; line-height:1.8">CONTACT PERSON</span>
+            <a href="https://wa.me/6287848557493" target="_blank" rel="noopener" style="font-size:16px; color:#dce6ff">+62 878-4855-7493 (WhatsApp)</a>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px">
+            <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:11px; color:#3B82F6; line-height:1.8">MEDIA SOSIAL</span>
+            <a href="https://www.instagram.com/tif_unsmadiun/" target="_blank" rel="noopener" style="font-size:15px; color:#dce6ff">IG Prodi — @tif_unsmadiun</a>
+            <a href="https://www.instagram.com/himatiunspsdkumadiun/" target="_blank" rel="noopener" style="font-size:15px; color:#dce6ff">IG Sintaks — @himatiunspsdkumadiun</a>
+            <a href="https://www.tiktok.com/@tif_unsmadiun" target="_blank" rel="noopener" style="font-size:15px; color:#dce6ff">TikTok Prodi — @tif_unsmadiun</a>
+            <a href="https://www.tiktok.com/@sintaksuns.offc" target="_blank" rel="noopener" style="font-size:15px; color:#dce6ff">TikTok Sintaks — @sintaksuns.offc</a>
+            <a href="https://www.youtube.com/@tifpsdku-unsmadiun" target="_blank" rel="noopener" style="font-size:15px; color:#dce6ff">YouTube — @tifpsdku-unsmadiun</a>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px">
+            <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:11px; color:#3B82F6; line-height:1.8">PANITIA</span>
+            <span style="font-size:15px; color:#c3d1ef; line-height:1.6">Program Studi D3 Teknik Informatika — Universitas Sebelas Maret Kampus Madiun</span>
+            <span style="font-family:'Space Mono',monospace; font-size:12px; color:#8fa6cf">Logo ESI Kab. Madiun khusus cabang Mobile Legends</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#fff; border-radius:999px; padding:14px 30px; margin:0 auto; width:fit-content; max-width:100%; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:34px">
+        <img src="assets/logo-uns.png" alt="Universitas Sebelas Maret" style="display:block; height:32px; width:auto">
+        <img src="assets/logo-sv.png" alt="Sekolah Vokasi UNS" style="display:block; height:32px; width:auto">
+        <img src="assets/logo-esi-madiun.png" alt="ESI Kabupaten Madiun" style="display:block; height:30px; width:auto">
+        <img src="assets/logo-sintaks.png" alt="Sintaks — HIMA D3 Teknik Informatika" style="display:block; height:38px; width:auto">
+        <img src="assets/logo-tif.png" alt="D3 Teknik Informatika UNS Madiun" style="display:block; height:42px; width:auto">
+      </div>
+
+      <div style="border-top:3px solid rgba(59,130,246,0.4); padding-top:22px; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center">
+        <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:11px; color:#7ED957; line-height:1.8">MYTHIC SEASON 3</span>
+        <span style="font-size:14px; color:#8fa6cf">Kampus UNS Madiun · 27–28 Oktober 2026 · Total hadiah Rp13.000.000</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // Countdown — Technical Meeting
+  var TARGET = new Date("2026-10-09T19:00:00+07:00").getTime();
+  var out = {
+    days: document.getElementById("cd-days"),
+    hours: document.getElementById("cd-hours"),
+    mins: document.getElementById("cd-mins"),
+    secs: document.getElementById("cd-secs")
+  };
+  function pad(n) { return String(n).padStart(2, "0"); }
+  function tick() {
+    var d = Math.max(0, TARGET - Date.now());
+    out.days.textContent = pad(Math.floor(d / 86400000));
+    out.hours.textContent = pad(Math.floor(d / 3600000) % 24);
+    out.mins.textContent = pad(Math.floor(d / 60000) % 60);
+    out.secs.textContent = pad(Math.floor(d / 1000) % 60);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // Scroll reveals
+  function revealAll() {
+    document.querySelectorAll("[data-reveal],[data-fade]").forEach(function (el) {
+      el.setAttribute(el.hasAttribute("data-reveal") ? "data-reveal" : "data-fade", "in");
+    });
+  }
+  if (!("IntersectionObserver" in window)) { revealAll(); return; }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.setAttribute(e.target.hasAttribute("data-reveal") ? "data-reveal" : "data-fade", "in");
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll("[data-reveal],[data-fade]").forEach(function (el) { io.observe(el); });
+
+  // Parallax layers
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var layers = Array.prototype.map.call(
+      document.querySelectorAll("[data-parallax]"),
+      function (el) { return { el: el, speed: parseFloat(el.getAttribute("data-parallax")) || 0 }; }
+    );
+    var raf = null;
+    var onScroll = function () {
+      if (raf) return;
+      raf = requestAnimationFrame(function () {
+        raf = null;
+        var vh = window.innerHeight;
+        layers.forEach(function (l) {
+          var r = l.el.parentElement.getBoundingClientRect();
+          if (r.bottom < -200 || r.top > vh + 200) return;
+          var progress = (vh - r.top) / (vh + r.height);
+          l.el.style.transform = "translate3d(0," + ((progress - 0.5) * 120 * l.speed).toFixed(2) + "px,0)";
+        });
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    onScroll();
+  }
+})();
+</script>
+</body>
+</html>
