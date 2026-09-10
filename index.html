@@ -451,6 +451,56 @@
   "use strict";
 
 
+  // Hero lockup — 3D tilt that follows the cursor (desktop pointers only)
+  var lockup = document.querySelector(".ms-hero-lockup");
+  var heroSection = document.getElementById("hero");
+  if (
+    lockup && heroSection &&
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    var art = lockup.querySelector("img");
+    var MAX_TILT = 11;   // degrees at the far edge of the hero
+    var EASE = 0.09;     // how quickly it chases the cursor
+    var wantX = 0, wantY = 0, haveX = 0, haveY = 0, lift = 0, wantLift = 0, tiltRaf = null;
+
+    lockup.style.perspective = "1000px";
+    art.style.willChange = "transform";
+    art.style.transformOrigin = "50% 55%";
+
+    var draw = function () {
+      haveX += (wantX - haveX) * EASE;
+      haveY += (wantY - haveY) * EASE;
+      lift += (wantLift - lift) * EASE;
+      art.style.transform =
+        "rotateX(" + haveY.toFixed(3) + "deg) rotateY(" + haveX.toFixed(3) + "deg) " +
+        "translateZ(" + (lift * 26).toFixed(2) + "px) scale(" + (1 + lift * 0.025).toFixed(4) + ")";
+      if (
+        Math.abs(wantX - haveX) > 0.01 || Math.abs(wantY - haveY) > 0.01 ||
+        Math.abs(wantLift - lift) > 0.001
+      ) {
+        tiltRaf = requestAnimationFrame(draw);
+      } else {
+        tiltRaf = null;
+      }
+    };
+    var nudge = function () { if (!tiltRaf) tiltRaf = requestAnimationFrame(draw); };
+
+    heroSection.addEventListener("mousemove", function (e) {
+      var r = heroSection.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - 0.5;   // -0.5 .. 0.5
+      var py = (e.clientY - r.top) / r.height - 0.5;
+      wantX = px * MAX_TILT * 2;
+      wantY = -py * MAX_TILT * 2;
+      wantLift = 1;
+      nudge();
+    });
+    heroSection.addEventListener("mouseleave", function () {
+      wantX = 0; wantY = 0; wantLift = 0;
+      nudge();
+    });
+  }
+
   // Burger menu (mobile)
   var burger = document.querySelector(".ms-burger");
   var nav = document.getElementById("ms-nav");
