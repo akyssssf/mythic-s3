@@ -85,10 +85,18 @@
     .ms-note { flex-wrap: nowrap !important; align-items: flex-start !important; }
     .ms-note > :last-child { flex: 1 1 auto; min-width: 0; }
 
+    /* Footer — centre everything so it lines up under the heading */
+    #daftar { text-align: center; }
+    #daftar div { align-items: center; }
+    #daftar a[href*="uns.id/mythic2026"] { align-self: center !important; }
+    #daftar .ms-foot-bar { justify-content: center !important; gap: 8px !important; }
+    #daftar p { margin-left: auto !important; margin-right: auto !important; }
+
     /* Partner logos — a neat block instead of a tall wrapped pill */
     .ms-partners {
+      box-sizing: border-box !important;
       border-radius: 18px !important; width: 100% !important;
-      padding: 18px 16px !important; gap: 18px 22px !important;
+      padding: 16px 14px !important; gap: 16px !important;
     }
     .ms-partners img { height: 26px !important; }
     .ms-partners img[alt*="Sintaks"] { height: 30px !important; }
@@ -430,7 +438,7 @@
         <img src="assets/logo-tif.png" alt="D3 Teknik Informatika UNS Madiun" style="display:block; height:42px; width:auto">
       </div>
 
-      <div style="border-top:3px solid rgba(59,130,246,0.4); padding-top:22px; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center">
+      <div class="ms-foot-bar" style="border-top:3px solid rgba(59,130,246,0.4); padding-top:22px; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center">
         <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:11px; color:#7ED957; line-height:1.8">MYTHIC SEASON 3</span>
         <span style="font-size:14px; color:#8fa6cf">Kampus UNS Madiun · 27–28 Oktober 2026 · Total hadiah Rp13.000.000</span>
       </div>
