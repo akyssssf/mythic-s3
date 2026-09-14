@@ -22,6 +22,16 @@
     0%,100% { opacity: 0.35; transform: translate3d(calc(var(--cx, 0%) + var(--mx, 0) * var(--depth, 0px)), calc(var(--my, 0) * var(--depth, 0px)), 0) scale(1); }
     50%     { opacity: 0.6;  transform: translate3d(calc(var(--cx, 0%) + var(--mx, 0) * var(--depth, 0px)), calc(var(--my, 0) * var(--depth, 0px)), 0) scale(1.08); }
   }
+  /* Plates in the hero tilt on the same plane as the lockup (--mx/--my come from the tilt loop).
+     --rot keeps a plate's own resting rotation; --tilt sets how far it follows the cursor. */
+  .ms-plate { transform: rotate(var(--rot, 0deg)); }
+  @media (hover: hover) and (pointer: fine) {
+    .ms-plate, #ms-nav > a {
+      transform: perspective(900px) rotateX(calc(var(--my, 0) * var(--tilt, 5deg))) rotateY(calc(var(--mx, 0) * var(--tilt, 5deg) * -1)) rotate(var(--rot, 0deg));
+      will-change: transform;
+    }
+    #ms-nav > a { --tilt: 7deg; }
+  }
   /* Scroll parallax writes --sy; hero layers additionally drift with the cursor */
   [data-parallax] { transform: translate3d(calc(var(--mx, 0) * var(--depth, 0px)), calc(var(--sy, 0px) + var(--my, 0) * var(--depth, 0px)), 0); }
   @keyframes mythicBlink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
@@ -144,7 +154,7 @@
 
       <div style="display:flex; flex-direction:column; align-items:center; gap:34px">
         <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:22px; min-width:0; max-width:760px">
-          <div style="display:inline-flex; align-items:center; background:#3B82F6; border:3px solid #0d1526; box-shadow:5px 5px 0 #7ED957; padding:8px 14px; transform:rotate(-2deg); max-width:100%">
+          <div class="ms-plate" style="--rot:-2deg; --tilt:6deg; display:inline-flex; align-items:center; background:#3B82F6; border:3px solid #0d1526; box-shadow:5px 5px 0 #7ED957; padding:8px 14px; max-width:100%">
             <span style="font-family:'Space Mono',monospace; font-weight:700; font-size:clamp(9px,2.2vw,12px); line-height:1.6; white-space:nowrap">SMA / SMK / MA SE-INDONESIA</span>
           </div>
 
@@ -169,7 +179,7 @@
         </div>
 
         <div style="width:100%; max-width:560px; display:flex; flex-direction:column; gap:16px">
-            <div style="border:4px solid #3B82F6; background:#0f1a30; box-shadow:8px 8px 0 rgba(126,217,87,0.5); padding:16px">
+            <div class="ms-plate" style="--tilt:5deg; border:4px solid #3B82F6; background:#0f1a30; box-shadow:8px 8px 0 rgba(126,217,87,0.5); padding:16px">
               <div style="font-family:'Space Mono',monospace; font-weight:700; font-size:11px; color:#7ED957; margin-bottom:12px; line-height:1.7; transition:opacity .35s ease">COUNTDOWN — <span id="cd-label">BATCH 1 GRATIS DITUTUP</span></div>
               <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px; text-align:center">
                 <div style="border:2px solid rgba(126,217,87,0.5); padding:8px 4px">
