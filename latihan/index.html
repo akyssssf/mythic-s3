@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Latihan IT Quest — MYTHIC SEASON 3</title>
+<meta name="description" content="Mode latihan Battle of Brain · IT Quest Adventure, Mythic Season 3.">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#131e35">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; background: #131e35; }
+  body { display: flex; flex-direction: column; height: 100dvh; font-family: 'Space Mono', ui-monospace, monospace; }
+
+  .bar {
+    flex: 0 0 auto; display: flex; align-items: center; gap: 14px;
+    padding: 8px 16px; background: #0d1526; border-bottom: 3px solid #3B82F6;
+  }
+  .bar a { color: #dce6ff; text-decoration: none; font-weight: 700; font-size: 11px; letter-spacing: .5px; }
+  .home { display: flex; align-items: center; gap: 12px; }
+  .home img { display: block; height: 34px; width: auto; }
+  .home span { color: #7ED957; }
+  .out {
+    margin-left: auto; border: 2px solid rgba(59,130,246,0.55); padding: 8px 11px; white-space: nowrap;
+    transition: background-color .16s ease, border-color .16s ease;
+  }
+  .out:hover { background: rgba(59,130,246,0.22); border-color: #3B82F6; }
+  .home:hover span { color: #b6f58a; }
+
+  iframe { flex: 1 1 auto; width: 100%; border: 0; display: block; background: #fff; }
+
+  @media (max-width: 520px) {
+    .home span { display: none; }   /* logo alone is enough on narrow phones */
+    .bar { padding: 6px 12px; }
+  }
+</style>
+</head>
+<body>
+  <nav class="bar" aria-label="Navigasi Mythic">
+    <a class="home" href="../">
+      <img src="../assets/mythic-logo-mark.png" alt="Kembali ke Mythic Season 3">
+      <span>← MYTHIC S3 · LATIHAN IT QUEST</span>
+    </a>
+    <a class="out" href="https://rafaalfarhezy77.github.io/IT-Quizz-Adventure/" target="_blank" rel="noopener">BUKA PENUH ↗</a>
+  </nav>
+  <iframe
+    src="https://rafaalfarhezy77.github.io/IT-Quizz-Adventure/"
+    title="IT Quest Adventure — mode latihan"
+    loading="eager"
+    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</body>
+</html>
